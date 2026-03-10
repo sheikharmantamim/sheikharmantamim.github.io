@@ -2,8 +2,7 @@
 :root {
     --primary-color: #500000; /* Aggie Maroon */
     --secondary-color: #3E0000; /* Darker Maroon for hover */
-    --accent-maroon: #800000; /* Lighter Maroon for titles and icons */
-    --abstract-color: #ED7D81; /* Flashy salmon-pink for the abstract toggle */
+    --accent-maroon: #800000; /* Lighter Maroon for icons */
     --bg-color: #FFFFFF; /* Pure white background */
     --text-color: #333333; /* Standard dark gray */
     --border-color: #E0E0E0;
@@ -24,7 +23,7 @@ body {
     font-size: 16px; 
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the page is at least as tall as the screen */
+    min-height: 100vh;
 }
 
 /* Top Navigation Bar */
@@ -48,7 +47,7 @@ body {
 }
 
 .nav-brand {
-    color: #FFFFFF !important; /* Forced bright white */
+    color: #FFFFFF !important; 
     font-size: 1.6em;
     font-weight: bold;
     text-decoration: none;
@@ -62,7 +61,7 @@ body {
 }
 
 .nav-links a {
-    color: #FFFFFF !important; /* Forced bright white */
+    color: #FFFFFF !important; 
     text-decoration: none;
     font-size: 1.1em;
     padding: 8px 12px;
@@ -79,7 +78,7 @@ body {
     max-width: 1100px; 
     width: 90%;        
     margin: 120px auto 60px; 
-    flex: 1; /* Pushes the footer to the bottom */
+    flex: 1; 
 }
 
 /* ELIMINATED "Biography" and "Research" Main Page Titles */
@@ -94,13 +93,13 @@ p {
 
 /* Content Blocks & Subheadings */
 .content-block {
-    margin-bottom: 35px;
+    margin-bottom: 50px;
 }
 
 .content-block h3 {
-    color: #333333; /* Crisp dark gray instead of maroon */
+    color: #333333; 
     font-size: 1.45em; 
-    margin-bottom: 5px;
+    margin-bottom: 25px;
 }
 
 /* Bio Section Layout */
@@ -124,7 +123,7 @@ p {
     width: 250px; 
     height: 250px;
     object-fit: cover;
-    border-radius: 50%; /* Perfect circle */
+    border-radius: 50%; 
     margin-bottom: 15px;
     border: 3px solid var(--primary-color);
 }
@@ -141,16 +140,16 @@ p {
     font-size: 1.05em;
     color: var(--text-color); 
     line-height: 1.4;
-    margin-bottom: 2px; /* Tiny gap to keep it close to the institution */
+    margin-bottom: 2px; 
     font-weight: 500;
 }
 
 /* Institution - Maroon colored text */
 .bio-institution {
     font-size: 1.05em;
-    color: var(--accent-maroon); 
+    color: var(--primary-color); 
     line-height: 1.4;
-    margin-bottom: 15px; /* Restores the larger gap before the icons */
+    margin-bottom: 15px; 
     font-weight: 500;
 }
 
@@ -177,7 +176,7 @@ p {
 
 .research-interests h3 {
     font-size: 1.2em;
-    color: #333333; /* Dark gray */
+    color: #333333; 
     margin-bottom: 15px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 5px;
@@ -212,7 +211,7 @@ p {
 /* Paper Styling */
 .paper-title {
     font-weight: bold;
-    color: #222222; /* Crisp, almost-black */
+    color: #222222; 
     font-size: 1.15em; 
 }
 
@@ -235,14 +234,14 @@ p {
     font-weight: 500;
 }
 
-/* Flashy Abstract Toggle Styling */
+/* Abstract Toggle Styling (Now Maroon and seamless) */
 .abstract-toggle {
     margin-top: 8px;
 }
 
 .abstract-toggle summary {
     cursor: pointer;
-    color: var(--abstract-color); /* The new salmon-pink color */
+    color: var(--primary-color); 
     font-weight: 600;
     font-size: 1.05em;
     transition: color 0.3s ease;
@@ -251,68 +250,42 @@ p {
     list-style: none; 
 }
 
-/* Ensures the default triangle doesn't show in Safari/Chrome */
 .abstract-toggle summary::-webkit-details-marker {
     display: none;
 }
 
-/* Creates our own custom colored triangle */
 .abstract-toggle summary::before {
     content: '▶'; 
-    color: var(--abstract-color);
+    color: var(--primary-color);
     font-size: 0.8em;
     margin-right: 8px;
     transition: transform 0.2s ease-in-out;
 }
 
-/* Animates the triangle to point down when opened */
 .abstract-toggle[open] summary::before {
     transform: rotate(90deg);
 }
 
-.abstract-toggle summary:hover {
-    color: #d16164; /* Darkens slightly on hover */
-}
-
+.abstract-toggle summary:hover,
 .abstract-toggle summary:hover::before {
-    color: #d16164;
+    color: var(--secondary-color); 
 }
 
 .abstract-toggle p {
     margin-top: 12px;
-    padding: 15px 20px;
-    background-color: #F8F9FA;
-    border-left: 3px solid var(--abstract-color); /* Side border matches the flashy pink */
+    padding: 5px 0 5px 15px;
+    border-left: 3px solid var(--primary-color); 
     font-size: 0.95em;
     color: #444;
     line-height: 1.6;
-    border-radius: 0 4px 4px 0;
 }
 
-/* Shaded Section for Works in Progress */
-.shaded-section {
-    background-color: #FCF7F7; 
-    padding: 35px 40px;
-    border-radius: 12px;
-    border: 1px solid #F0E6E6;
-    margin-top: 50px;
-    margin-left: -40px; 
-    margin-right: -40px;
-}
-
-.shaded-section h3 {
-    margin-top: 0;
-    color: #333333; /* Dark gray */
-    font-size: 1.45em;
-    margin-bottom: 25px;
-}
-
-/* Footer with sticky margin-top auto */
+/* Footer */
 footer {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 30px 20px;
-    margin-top: auto; /* Forces the footer to the bottom of the page */
+    margin-top: auto; 
     border-top: 2px solid var(--secondary-color);
 }
 
@@ -339,7 +312,7 @@ footer {
 }
 
 .footer-bottom-left p {
-    color: var(--white);
+    color: #FFFFFF;
     margin: 0;
 }
 
@@ -356,7 +329,7 @@ footer {
 }
 
 .footer-bottom-right a:hover {
-    color: var(--white);
+    color: #FFFFFF;
 }
 
 /* Responsive Rules for Mobile */
@@ -385,10 +358,5 @@ footer {
     .main-content {
         margin-top: 140px;
         padding: 15px;
-    }
-    .shaded-section {
-        margin-left: -15px;
-        margin-right: -15px;
-        padding: 25px 20px;
     }
 }
