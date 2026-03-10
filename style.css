@@ -15,7 +15,7 @@
     padding: 0;
 }
 
-/* Added Flexbox rules here to create the sticky footer */
+/* Flexbox rules to create the sticky footer */
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
@@ -136,12 +136,21 @@ p {
     margin-bottom: 5px;
 }
 
-/* Job Title text colored to match the icons */
+/* Job Title - Standard dark text */
 .bio-title {
     font-size: 1.05em;
-    color: var(--accent-maroon);
+    color: var(--text-color); 
     line-height: 1.4;
-    margin-bottom: 15px;
+    margin-bottom: 2px; /* Tiny gap to keep it close to the institution */
+    font-weight: 500;
+}
+
+/* Institution - Maroon colored text */
+.bio-institution {
+    font-size: 1.05em;
+    color: var(--accent-maroon); 
+    line-height: 1.4;
+    margin-bottom: 15px; /* Restores the larger gap before the icons */
     font-weight: 500;
 }
 
