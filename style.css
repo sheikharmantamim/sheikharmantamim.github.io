@@ -2,7 +2,7 @@
 :root {
     --primary-color: #500000; /* Aggie Maroon */
     --secondary-color: #3E0000; /* Darker Maroon for hover */
-    --accent-maroon: #800000; /* Lighter Maroon for accents */
+    --accent-maroon: #800000; /* Lighter Maroon for titles and icons */
     --abstract-color: #ED7D81; /* Flashy salmon-pink for the abstract toggle */
     --bg-color: #FFFFFF; /* Pure white background */
     --text-color: #333333; /* Standard dark gray */
@@ -15,12 +15,16 @@
     padding: 0;
 }
 
+/* Added Flexbox rules here to create the sticky footer */
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    font-size: 16px; /* Decreased font size for a cleaner look */
+    font-size: 16px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the page is at least as tall as the screen */
 }
 
 /* Top Navigation Bar */
@@ -75,6 +79,7 @@ body {
     max-width: 1100px; 
     width: 90%;        
     margin: 120px auto 60px; 
+    flex: 1; /* Pushes the footer to the bottom */
 }
 
 /* ELIMINATED "Biography" and "Research" Main Page Titles */
@@ -131,9 +136,10 @@ p {
     margin-bottom: 5px;
 }
 
+/* Job Title text colored to match the icons */
 .bio-title {
     font-size: 1.05em;
-    color: var(--text-color); /* Changed back to normal text color */
+    color: var(--accent-maroon);
     line-height: 1.4;
     margin-bottom: 15px;
     font-weight: 500;
@@ -162,7 +168,7 @@ p {
 
 .research-interests h3 {
     font-size: 1.2em;
-    color: #333333; /* Changed to dark gray */
+    color: #333333; /* Dark gray */
     margin-bottom: 15px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 5px;
@@ -233,7 +239,7 @@ p {
     transition: color 0.3s ease;
     display: flex;
     align-items: center;
-    list-style: none; /* Removes the default black browser triangle */
+    list-style: none; 
 }
 
 /* Ensures the default triangle doesn't show in Safari/Chrome */
@@ -292,12 +298,12 @@ p {
     margin-bottom: 25px;
 }
 
-/* Footer */
+/* Footer with sticky margin-top auto */
 footer {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 30px 20px;
-    margin-top: 60px;
+    margin-top: auto; /* Forces the footer to the bottom of the page */
     border-top: 2px solid var(--secondary-color);
 }
 
