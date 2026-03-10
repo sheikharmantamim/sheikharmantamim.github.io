@@ -1,10 +1,11 @@
-/* Texas A&M Academic Color Scheme */
+/* Texas A&M Academic Color Scheme & General Variables */
 :root {
     --primary-color: #500000; /* Aggie Maroon */
     --secondary-color: #3E0000; /* Darker Maroon for hover */
-    --accent-maroon: #800000; /* Lighter Maroon for titles and icons */
+    --accent-maroon: #800000; /* Lighter Maroon for accents */
+    --abstract-color: #ED7D81; /* Flashy salmon-pink for the abstract toggle */
     --bg-color: #FFFFFF; /* Pure white background */
-    --text-color: #333333;
+    --text-color: #333333; /* Standard dark gray */
     --border-color: #E0E0E0;
 }
 
@@ -19,7 +20,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    font-size: 18px; /* Slightly larger base font for wide layout */
+    font-size: 16px; /* Decreased font size for a cleaner look */
 }
 
 /* Top Navigation Bar */
@@ -43,7 +44,7 @@ body {
 }
 
 .nav-brand {
-    color: var(--white);
+    color: #FFFFFF !important; /* Forced bright white */
     font-size: 1.6em;
     font-weight: bold;
     text-decoration: none;
@@ -57,7 +58,7 @@ body {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: #FFFFFF !important; /* Forced bright white */
     text-decoration: none;
     font-size: 1.1em;
     padding: 8px 12px;
@@ -76,12 +77,9 @@ body {
     margin: 120px auto 60px; 
 }
 
+/* ELIMINATED "Biography" and "Research" Main Page Titles */
 h1.page-title {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    font-size: 2.6em; 
+    display: none; 
 }
 
 p {
@@ -89,13 +87,13 @@ p {
     color: #444;
 }
 
-/* Content Blocks */
+/* Content Blocks & Subheadings */
 .content-block {
     margin-bottom: 35px;
 }
 
 .content-block h3 {
-    color: var(--primary-color);
+    color: #333333; /* Crisp dark gray instead of maroon */
     font-size: 1.45em; 
     margin-bottom: 5px;
 }
@@ -129,13 +127,13 @@ p {
 .bio-name {
     font-size: 1.5em;
     font-weight: bold;
-    color: var(--text-color);
+    color: #222222;
     margin-bottom: 5px;
 }
 
 .bio-title {
     font-size: 1.05em;
-    color: var(--accent-maroon);
+    color: var(--text-color); /* Changed back to normal text color */
     line-height: 1.4;
     margin-bottom: 15px;
     font-weight: 500;
@@ -164,7 +162,7 @@ p {
 
 .research-interests h3 {
     font-size: 1.2em;
-    color: var(--primary-color);
+    color: #333333; /* Changed to dark gray */
     margin-bottom: 15px;
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 5px;
@@ -199,7 +197,7 @@ p {
 /* Paper Styling */
 .paper-title {
     font-weight: bold;
-    color: var(--primary-color);
+    color: #222222; /* Crisp, almost-black */
     font-size: 1.15em; 
 }
 
@@ -222,30 +220,54 @@ p {
     font-weight: 500;
 }
 
-/* Abstract Toggle Styling */
+/* Flashy Abstract Toggle Styling */
 .abstract-toggle {
     margin-top: 8px;
 }
 
 .abstract-toggle summary {
     cursor: pointer;
-    color: var(--accent-maroon);
+    color: var(--abstract-color); /* The new salmon-pink color */
     font-weight: 600;
-    font-size: 0.95em;
+    font-size: 1.05em;
     transition: color 0.3s ease;
-    display: inline-block; 
+    display: flex;
+    align-items: center;
+    list-style: none; /* Removes the default black browser triangle */
+}
+
+/* Ensures the default triangle doesn't show in Safari/Chrome */
+.abstract-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Creates our own custom colored triangle */
+.abstract-toggle summary::before {
+    content: '▶'; 
+    color: var(--abstract-color);
+    font-size: 0.8em;
+    margin-right: 8px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Animates the triangle to point down when opened */
+.abstract-toggle[open] summary::before {
+    transform: rotate(90deg);
 }
 
 .abstract-toggle summary:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
+    color: #d16164; /* Darkens slightly on hover */
+}
+
+.abstract-toggle summary:hover::before {
+    color: #d16164;
 }
 
 .abstract-toggle p {
     margin-top: 12px;
     padding: 15px 20px;
     background-color: #F8F9FA;
-    border-left: 3px solid var(--primary-color);
+    border-left: 3px solid var(--abstract-color); /* Side border matches the flashy pink */
     font-size: 0.95em;
     color: #444;
     line-height: 1.6;
@@ -265,7 +287,7 @@ p {
 
 .shaded-section h3 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: #333333; /* Dark gray */
     font-size: 1.45em;
     margin-bottom: 25px;
 }
