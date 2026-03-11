@@ -206,7 +206,7 @@ p {
 
 .interest-tags li:hover {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: #FFFFFF;
 }
 
 /* Paper Styling */
